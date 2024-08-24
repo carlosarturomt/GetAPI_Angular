@@ -1,0 +1,35 @@
+<div fxFlex class="w-full h-full left-0 top-0 absolute">
+  <app-header [sidenav]="sidenav"></app-header>
+
+  <mat-sidenav-container fxFill>
+    <mat-sidenav #sidenav mode="over" ngClass.gt-sm="has-border">
+      <nav>
+        <mat-list>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="sidenav.close()">
+            <span translate>Home</span>
+          </a>
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="sidenav.close()">
+            <span translate>About</span>
+          </a>
+          <mat-divider></mat-divider>
+          <!-- Mostrar nombre del usuario y botón de logout si el usuario está autenticado -->
+          <div *ngIf="user; else loggedOut">
+            <p>Bienvenido, {{ user.email }}</p>
+            <button mat-button (click)="logout()">Cerrar sesión</button>
+          </div>
+          <ng-template #loggedOut>
+            <a mat-list-item routerLink="/login" routerLinkActive="active" (click)="sidenav.close()">
+              <span translate>Login</span>
+            </a>
+          </ng-template>
+        </mat-list>
+      </nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

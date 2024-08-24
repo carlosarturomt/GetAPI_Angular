@@ -1,0 +1,38 @@
+<header class="flex items-center fixed left-0 w-full z-10 py-4 px-6">
+  <div fxHide.gt-sm fxLayoutAlign="start center">
+    <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div fxHide.lt-md class="w-full flex items-center justify-between h-full">
+    <a class="flex w-full max-w-32 items-center" href="/" translate>
+      <img src="https://images.squarespace-cdn.com/content/6011d06b6b9bf728c97d41c8/1612319897954-W675315063J6NIADSSBF/White-Transparent-1.png?format=1500w&content-type=image%2Fpng" alt='APP_NAME' class="w-full object-cover" />
+    </a>
+
+    <div class="text-white">
+      <button mat-button routerLink="/home" routerLinkActive="active">
+        <span translate class="uppercase">Home</span>
+      </button>
+      <button mat-button routerLink="/about" routerLinkActive="active">
+        <span translate class="uppercase">About</span>
+      </button>
+
+      <app-language-selector [icon]="true"></app-language-selector>
+
+      <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>person</mat-icon>
+      </button>
+
+      <mat-menu #userMenu="matMenu">
+        <mat-list>
+          <mat-list-item>
+            <span translate>Logged in as</span>&nbsp;<b>{{ username }}</b>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+        <button mat-menu-item (click)="logout()" translate>Logout</button>
+      </mat-menu>
+    </div>
+  </div>
+</header>
