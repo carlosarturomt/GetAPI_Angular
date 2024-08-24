@@ -13,7 +13,12 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { environment } from '@env/environment';
-import { RouteReusableStrategy, ApiPrefixInterceptor, ErrorHandlerInterceptor, SharedModule } from '@shared';
+import {
+  RouteReusableStrategy,
+  ApiPrefixInterceptor,
+  ErrorHandlerInterceptor,
+  SharedModule,
+} from '@shared';
 import { AuthModule } from '@app/auth';
 import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
@@ -22,6 +27,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { LogoutComponent } from './components/logout/logout.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   imports: [
@@ -31,7 +37,9 @@ import { LogoutComponent } from './components/logout/logout.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
 
-    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('./ngsw-worker.js', {
+      enabled: environment.production,
+    }),
     FormsModule,
     HttpClientModule,
     RouterModule,
@@ -43,6 +51,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     HomeModule,
     AboutModule,
     AuthModule,
+    ComponentsModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent, LogoutComponent],

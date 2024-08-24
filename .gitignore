@@ -1,6 +1,3 @@
 node_modules
 .angular
 .angular/cache/
-docs
-cypress
-assets

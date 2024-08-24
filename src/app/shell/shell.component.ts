@@ -31,17 +31,23 @@ export class ShellComponent implements OnInit {
       .subscribe(() => this.sidenav.close());
 
     // Subscribe to the user's authentication state
-    this.authService.getUserState().pipe(untilDestroyed(this)).subscribe(user => {
-      this.user = user;
-    });
+    this.authService
+      .getUserState()
+      .pipe(untilDestroyed(this))
+      .subscribe((user) => {
+        this.user = user;
+      });
   }
 
   logout() {
-    this.authService.logout().then(() => {
-      this.user = null;
-      // Optionally, you could redirect the user to the login page
-    }).catch(error => {
-      console.error('Error al cerrar sesión:', error);
-    });
+    this.authService
+      .logout()
+      .then(() => {
+        this.user = null;
+        // Optionally, you could redirect the user to the login page
+      })
+      .catch((error) => {
+        console.error('Error al cerrar sesión:', error);
+      });
   }
 }

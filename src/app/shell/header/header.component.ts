@@ -13,16 +13,19 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.authService.getUserState().subscribe(user => {
+    this.authService.getUserState().subscribe((user) => {
       this.username = user ? user.email : null;
     });
   }
 
   logout() {
-    this.authService.logout().then(() => {
-      // Optionally, you can redirect or perform additional actions after logout
-    }).catch(error => {
-      console.error('Error al cerrar sesión:', error);
-    });
+    this.authService
+      .logout()
+      .then(() => {
+        // Optionally, you can redirect or perform additional actions after logout
+      })
+      .catch((error) => {
+        console.error('Error al cerrar sesión:', error);
+      });
   }
 }

@@ -15,7 +15,12 @@ describe('HeaderComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, MaterialModule, TranslateModule.forRoot(), I18nModule],
+      imports: [
+        RouterTestingModule,
+        MaterialModule,
+        TranslateModule.forRoot(),
+        I18nModule,
+      ],
       declarations: [HeaderComponent],
       providers: [
         { provide: AuthenticationService, useClass: MockAuthenticationService },
