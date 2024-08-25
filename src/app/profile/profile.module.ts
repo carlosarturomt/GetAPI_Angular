@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     MaterialModule,
     ProfileRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [ProfileComponent],
 })

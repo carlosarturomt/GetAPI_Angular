@@ -7,7 +7,6 @@ import { FirestoreService } from '@app/services/firestore.service';
   selector: 'app-fullmap',
   templateUrl: './fullmap.component.html',
 })
-
 export class FullmapComponent implements OnInit {
   user: any = null;
   isLoading = false;
@@ -15,7 +14,6 @@ export class FullmapComponent implements OnInit {
   userData: any = {};
   nameSelected = '';
   descriptionSelected = '';
-
 
   private apiUrl = 'https://api.datos.gob.mx/v1/condiciones-atmosfericas';
   private currentInfoWindow: google.maps.InfoWindow | null = null;
@@ -95,7 +93,9 @@ export class FullmapComponent implements OnInit {
         this.currentInfoWindow = infoWindow;
 
         google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
-          const saveButton = document.querySelector('.save-favorites-btn') as HTMLButtonElement;
+          const saveButton = document.querySelector(
+            '.save-favorites-btn'
+          ) as HTMLButtonElement;
           if (saveButton) {
             saveButton.addEventListener('click', () => this.saveApiData());
           }
@@ -105,7 +105,7 @@ export class FullmapComponent implements OnInit {
   }
 
   createInfoWindowContent(location: any): string {
-    let content = /*html*/`
+    let content = /*html*/ `
       <h3 class="font-semibold uppercase flex items-center gap-2">
         <span class="relative h-[35px] flex items-center">
           <i class="material-icons text-[#009dd1]">cloud</i>
@@ -117,7 +117,7 @@ export class FullmapComponent implements OnInit {
     `;
 
     if (this.user) {
-      content += /*html*/`
+      content += /*html*/ `
         <button class="save-favorites-btn tracking-widest uppercase my-2 text-xs text-white rounded-full py-2 px-4 transition-colors duration-700 bg-[#009dd1] hover:bg-[#009dd1]/80">Guardar en favoritos</button>
       `;
     }
@@ -129,18 +129,22 @@ export class FullmapComponent implements OnInit {
     if (this.user) {
       const data = {
         favorites: {
-          [this.nameSelected] : {
+          [this.nameSelected]: {
             name: this.nameSelected,
             description: this.descriptionSelected,
-          }
-        }
+          },
+        },
       };
-      this.firestoreService.saveUserData(this.user.uid, data).then(() => {
-        alert('Datos guardados exitosamente. Puedes ver tus Favoritos en tu perfil.');
-      }).catch(error => {
-        console.error('Error al guardar los datos', error);
-      });
+      this.firestoreService
+        .saveUserData(this.user.uid, data)
+        .then(() => {
+          alert(
+            'Datos guardados exitosamente. Puedes ver tus Favoritos en tu perfil.'
+          );
+        })
+        .catch((error) => {
+          console.error('Error al guardar los datos', error);
+        });
     }
   }
-
 }

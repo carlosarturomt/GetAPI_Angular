@@ -1,39 +1,53 @@
-<section class="relative w-screen h-screen flex items-center flex-col justify-center overscroll-none overflow-hidden">
-  <div class="absolute w-full h-full top-0 flex justify-center items-center flex-col bg-black/80"></div>
+<section
+  class="relative w-screen h-screen flex items-center flex-col justify-center overscroll-none overflow-hidden"
+>
+  <div
+    class="absolute w-full h-full top-0 flex justify-center items-center flex-col bg-black/80"
+  ></div>
   <iframe
-  id="player"
-  style="
-    position: absolute;
-    inset: -89.7188px 0px 0px;
-    width: 100vw;
-    height: 125%;
-    z-index: -1;
-  "
-  frameborder="0"
-  allowfullscreen=""
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  title="Telasist Banner"
-  width="640"
-  height="360"
-  src="https://www.youtube.com/embed/yJJkWpoqSa8?autohide=1&amp;autoplay=1&amp;controls=0&amp;enablejsapi=1&amp;iv_load_policy=3&amp;loop=1&amp;playlist=yJJkWpoqSa8&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;showinfo=0&amp;wmode=opaque&amp;origin=https%3A%2F%2Fwww.telasist.com&amp;widgetid=1&amp;mute=1"
-  data-gtm-yt-inspected-4="true"
-  class="background-video ready"
+    id="player"
+    style="
+      position: absolute;
+      inset: -89.7188px 0px 0px;
+      width: 100vw;
+      height: 125%;
+      z-index: -1;
+    "
+    frameborder="0"
+    allowfullscreen=""
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    title="Telasist Banner"
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/yJJkWpoqSa8?autohide=1&amp;autoplay=1&amp;controls=0&amp;enablejsapi=1&amp;iv_load_policy=3&amp;loop=1&amp;playlist=yJJkWpoqSa8&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;showinfo=0&amp;wmode=opaque&amp;origin=https%3A%2F%2Fwww.telasist.com&amp;widgetid=1&amp;mute=1"
+    data-gtm-yt-inspected-4="true"
+    class="background-video ready"
   ></iframe>
 
-  <h2 class="absolute top-6 left-6 text-white text-xl tracking-widest uppercase" translate>Login</h2>
+  <h2
+    class="absolute top-6 left-6 text-white text-xl tracking-widest uppercase"
+    translate
+  >
+    Login
+  </h2>
 
   <div
     class="w-full md:w-2/3 max-w-2xl p-4 rounded-xl flex flex-col items-center justify-center bg-white backdrop-blur z-10"
   >
-    <a class="flex w-full max-w-32 items-center " href="/" translate>
+    <a class="flex w-full max-w-32 items-center" href="/" translate>
       <img
         src="https://images.squarespace-cdn.com/content/6011d06b6b9bf728c97d41c8/1612319897954-W675315063J6NIADSSBF/White-Transparent-1.png?format=1500w&content-type=image%2Fpng"
         alt="telasist"
         class="w-full object-cover -mt-24"
       />
     </a>
-    <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate class="w-full px-6">
+    <form
+      (ngSubmit)="login()"
+      [formGroup]="loginForm"
+      novalidate
+      class="w-full px-6"
+    >
       <div class="login-error" *ngIf="error || isLoading" translate>
         {{ error }}
       </div>
@@ -85,7 +99,11 @@
           <span translate>Login</span>
         </button>
 
-        <a class="mt-4 flex w-full items-center justify-center text-xs transition-colors duration-700 hover:font-semibold tracking-widest uppercase text-[#009dd1]" href="/register" translate>
+        <a
+          class="mt-4 flex w-full items-center justify-center text-xs transition-colors duration-700 hover:font-semibold tracking-widest uppercase text-[#009dd1]"
+          href="/register"
+          translate
+        >
           Register
         </a>
       </div>

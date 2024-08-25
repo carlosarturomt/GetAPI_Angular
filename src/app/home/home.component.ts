@@ -26,13 +26,15 @@ export class HomeComponent implements OnInit {
   loadData() {
     this.isLoading = true;
     //this.firestoreService.getData('userAuth')
-    this.firestoreService.getUserData('userAuth')
-      .subscribe(data => {
+    this.firestoreService.getUserData('userAuth').subscribe(
+      (data) => {
         this.firestoreData = data;
         this.isLoading = false;
-      }, error => {
+      },
+      (error) => {
         console.error('Error loading data', error);
         this.isLoading = false;
-      });
+      }
+    );
   }
 }

@@ -12,7 +12,11 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   error: string | null = null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({

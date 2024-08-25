@@ -31,7 +31,7 @@
       "@shared/*": ["src/app/@shared/*"],
       "@env/*": ["src/environments/*"],
       "@components/*": ["src/app/components/*"],
-      "@services/*": ["src/app/services/*"],
+      "@services/*": ["src/app/services/*"], 
       "@translations/*": ["src/translations/*"]
     }
   },

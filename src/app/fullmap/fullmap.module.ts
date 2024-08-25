@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
     MaterialModule,
     FullmapRoutingModule,
     FormsModule,
-    RouterModule
+    RouterModule,
   ],
   declarations: [FullmapComponent],
 })

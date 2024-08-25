@@ -2,7 +2,13 @@
   <app-header [sidenav]="sidenav" class="text-white"></app-header>
 
   <mat-sidenav-container fxFill class="bg-transparent">
-    <mat-sidenav #sidenav mode="over" ngClass.gt-sm="has-border" class="w-[80vw]" style="background-color: transparent;">
+    <mat-sidenav
+      #sidenav
+      mode="over"
+      ngClass.gt-sm="has-border"
+      class="w-[80vw]"
+      style="background-color: transparent"
+    >
       <nav class="bg-black/80 h-full pt-20 backdrop-blur-sm">
         <mat-list>
           <mat-divider></mat-divider>
@@ -19,7 +25,9 @@
           <mat-divider></mat-divider>
           <div *ngIf="user; else loggedOut">
             <p class="text-white">Bienvenido, {{ user.email }}</p>
-            <button mat-button (click)="logout()" class="text-white">Cerrar sesión</button>
+            <button mat-button (click)="logout()" class="text-white">
+              Cerrar sesión
+            </button>
           </div>
           <ng-template #loggedOut>
             <a
@@ -28,7 +36,7 @@
               routerLinkActive="active"
               (click)="sidenav.close()"
             >
-              <span translate  class="text-white">Login</span>
+              <span translate class="text-white">Login</span>
             </a>
           </ng-template>
         </mat-list>

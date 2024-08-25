@@ -21,13 +21,11 @@ export class ShellComponent implements OnInit {
 
   ngOnInit() {
     // Automatically close side menu on screens > small breakpoint
-    this.breakpoint
-      .observe([Breakpoints.Small, Breakpoints.XSmall])
-      .pipe(
-        filter(({ matches }) => !matches),
-        untilDestroyed(this)
-      )
-      //.subscribe(() => this.sidenav.close());
+    this.breakpoint.observe([Breakpoints.Small, Breakpoints.XSmall]).pipe(
+      filter(({ matches }) => !matches),
+      untilDestroyed(this)
+    );
+    //.subscribe(() => this.sidenav.close());
 
     // Subscribe to the user's authentication state
     this.authService
