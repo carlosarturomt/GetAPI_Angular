@@ -22,12 +22,13 @@ import {
 import { AuthModule } from '@app/auth';
 import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
-import { AboutModule } from './about/about.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { LogoutComponent } from './components/logout/logout.component';
 import { ComponentsModule } from './components/components.module';
+import { ProfileModule } from './profile/profile.module';
+import { FullmapModule } from './fullmap/fullmap.module';
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { ComponentsModule } from './components/components.module';
     SharedModule,
     ShellModule,
     HomeModule,
-    AboutModule,
+    ProfileModule,
+    FullmapModule,
     AuthModule,
     ComponentsModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route

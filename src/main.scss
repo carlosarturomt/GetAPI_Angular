@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scrollbar-width: none;
+}
+
 /*
  * Entry point of global application style.
  * Component-specific style should not go here and be included directly as part of the components.

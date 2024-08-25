@@ -4,8 +4,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '@app/material.module';
-import { AboutRoutingModule } from './about-routing.module';
-import { AboutComponent } from './about.component';
+import { FormsModule } from '@angular/forms';
+import { FullmapComponent } from './fullmap.component';
+import { FullmapRoutingModule } from './fullmap-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -13,8 +15,10 @@ import { AboutComponent } from './about.component';
     TranslateModule,
     FlexLayoutModule,
     MaterialModule,
-    AboutRoutingModule,
+    FullmapRoutingModule,
+    FormsModule,
+    RouterModule
   ],
-  declarations: [AboutComponent],
+  declarations: [FullmapComponent],
 })
-export class AboutModule {}
+export class FullmapModule {}

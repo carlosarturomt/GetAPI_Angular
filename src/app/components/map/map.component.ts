@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http'; // Importa HttpClient para re
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
   private apiUrl = 'https://api.datos.gob.mx/v1/condiciones-atmosfericas';
@@ -28,7 +27,7 @@ export class MapComponent implements OnInit {
   initMap() {
     const mapOptions: google.maps.MapOptions = {
       center: new google.maps.LatLng(23.6345, -102.5528), // Coordenadas
-      zoom: 5
+      zoom: 4,
     };
 
     const mapElement = document.getElementById('map') as HTMLElement;
@@ -44,18 +43,20 @@ export class MapComponent implements OnInit {
   }
 
   addMarkers(map: google.maps.Map, locations: any[]) {
-    locations.forEach(location => {
-      const latLng = new google.maps.LatLng(Number(location.latitude), Number(location.longitude));
+    locations.forEach((location) => {
+      const latLng = new google.maps.LatLng(
+        Number(location.latitude),
+        Number(location.longitude)
+      );
 
       const marker = new google.maps.Marker({
         position: latLng,
         map: map,
-        title: location.name // Puedes usar cualquier otra propiedad como título
+        title: location.name,
       });
 
-      // Opcional: Agregar un infowindow
       const infoWindow = new google.maps.InfoWindow({
-        content: `<h3>${location.name}</h3><p>${location.skydescriptionlong}</p>`
+        content: `<h3>${location.name}</h3><p>${location.skydescriptionlong}</p>`,
       });
 
       marker.addListener('click', () => {

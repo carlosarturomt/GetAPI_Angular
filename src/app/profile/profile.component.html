@@ -1,0 +1,69 @@
+<div class="w-full flex flex-col justify-center items-center pb-6" *ngIf="user">
+  <div class="w-full h-[79vh] min-h-[505px] max-h-[800px] flex relative">
+    <div *ngIf="isLoading" class="absolute w-full h-full flex justify-center items-center z-10">
+      <mat-progress-spinner mode="indeterminate" [strokeWidth]="2"></mat-progress-spinner>
+    </div>
+    <div *ngIf="!isLoading" class="absolute w-full h-full top-0 flex justify-center items-center flex-col bg-black/50">
+      <img src="assets/userphoto.webp" alt="user" class="rounded-full bg-[#009dd1] mb-2" />
+
+      <div *ngIf="!isEditing" class="flex justify-center flex-col items-center">
+        <p class="text-white text-5xl font-medium uppercase text-center tracking-widest">{{ userData.name }}</p>
+        <p class="text-white text-lg uppercase font-light text-center">{{ userAuthData.email }}</p>
+
+        <button class="text-xs transition-colors duration-700 tracking-widest uppercase text-white rounded-full py-2 px-4 hover:bg-[#009dd1]/80" (click)="toggleEditMode()" translate>
+        Edit profile</button>
+      </div>
+
+      <div *ngIf="isEditing" class="flex flex-col items-center space-y-4 w-full max-w-lg">
+        <input [(ngModel)]="editedName" placeholder="Nombre" class="w-full outline-none border-b-2 backdrop-blur border-[#009dd1] bg-transparent px-4 py-2 rounded-t-xl text-white transition-colors duration-700 hover:bg-[#009dd1]" />
+        <textarea
+        [(ngModel)]="editedDescription"
+        placeholder="Descripción"
+        class="w-full outline-none border-b-2 backdrop-blur border-[#009dd1] bg-transparent px-4 py-2 rounded-t-xl text-white transition-colors duration-700 hover:bg-[#009dd1]"
+        rows="4"></textarea>
+        <button class="btn btn-success" (click)="toggleEditMode()" class="tracking-widest uppercase text-white rounded-full py-2 w-full transition-colors duration-700 bg-[#009dd1] hover:bg-[#009dd1]/80">Guardar</button>
+      </div>
+    </div>
+    <img class="w-full h-full object-cover" src="https://images.squarespace-cdn.com/content/v1/6011d06b6b9bf728c97d41c8/1612735359605-9YAD5WL3U73ZFZOYNB9K/image-asset.jpeg" alt="picture" />
+  </div>
+
+  <div class="flex mt-10 w-full max-w-screen-lg gap-6 items-start justify-between px-2 md:px-0 flex-col md:flex-row flex-col-reverse">
+    <div class="w-full md:w-1/4">
+      <h3 class="uppercase tracking-widest font-medium text-center md:text-start" translate>My favorites</h3>
+
+      <div *ngIf="!userData.favorites || objectKeys(userData.favorites).length === 0">
+        <p class="text-gray-500">No hay datos guardados.</p>
+      </div>
+
+      <div *ngIf="userData.favorites && objectKeys(userData.favorites).length > 0" class="max-h-[420px] overflow-auto">
+        <div *ngFor="let key of objectKeys(userData.favorites)" class="hover:bg-[#009dd1]/10 rounded-xl px-2 cursor-pointer">
+          <div class="my-2 border-b">
+            <h4 class="font-semibold">{{ userData.favorites[key].name }}</h4>
+            <p>{{ userData.favorites[key].description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!isEditing" class="flex justify-center flex-col items-center w-full md:w-3/4">
+      <h3 class="uppercase tracking-widest font-medium text-start" translate>About me</h3>
+      <div *ngIf="!userData.description || objectKeys(userData.description).length === 0">
+        <p class="text-gray-500">No hay datos guardados.</p>
+      </div>
+
+      <div *ngIf="userData.description && objectKeys(userData.description).length > 0">
+        <p class="text-black text-lg font-light">{{ userData.description }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="!user" class="w-full h-full">
+  <div *ngIf="!isLoading" class="text-[#009dd1] text-8xl font-semibold text-center h-full flex items-center justify-center flex-col">
+    404
+    <a class="flex w-full items-center justify-center text-xs transition-colors duration-700 hover:font-semibold tracking-widest uppercase text-[#009dd1]" href="/" translate>
+      Go to Home
+    </a>
+  </div>
+</div>

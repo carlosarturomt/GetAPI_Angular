@@ -1,4 +1,80 @@
-<div class="w-full h-full">
-    Map!
-    <div id="map" class="bg-red- w-full h-screen bg-red-100"></div>
-</div>
+<article class="w-full flex items-center justify-center flex-col py-20">
+  <aside
+    class="w-full max-w-screen-lg h-full flex flex-col md:flex-row px-2 md:px-0"
+  >
+    <div class="w-full md:w-6/12 pb-8 md:pr-12">
+      <h3 class="tracking-widest uppercase text-lg mb-4" translate>
+        Technical Test Indications
+      </h3>
+      <ul class="space-y-2">
+        <li class="flex items-start gap-1">
+          <i class="material-icons text-[#009dd1]">check</i>
+          <span translate>
+            Generate project with ngx-rocket
+            <a
+              href="https://github.com/ngx-rocket"
+              target="_blank"
+              class="hover:text-[#009dd1]"
+              >(https://github.com/ngx-rocket)</a
+            >.
+          </span>
+        </li>
+        <li class="flex items-start gap-1">
+          <i class="material-icons text-[#009dd1]">check</i>
+          <span translate>
+            The project must include Lazy Loading and Login </span
+          >.
+        </li>
+        <li class="flex items-start gap-1">
+          <i class="material-icons text-[#009dd1]">check</i>
+          <span translate>Implement Firebase Authentication</span>.
+        </li>
+        <li class="flex items-start gap-1">
+          <i class="material-icons text-[#009dd1]">check</i>
+          <span translate>
+            You will need to paint a full screen map (Google Maps / LeafLet /
+            MapBox). // Google Maps
+          </span>
+        </li>
+        <li class="flex items-start gap-1">
+          <i class="material-icons text-[#009dd1]">check</i>
+          <span translate>
+            You will need to obtain the CDMX API pins and place them in the Map
+            <a
+              href="https://api.datos.gob.mx/v1/condiciones-atmosfericas"
+              target="_blank"
+              class="hover:text-[#009dd1]"
+              >(GET https://api.datos.gob.mx/v1/condiciones-atmosfericas)</a
+            >
+          </span>
+        </li>
+        <li class="flex items-start gap-1">
+          <i class="material-icons text-[#009dd1]">check</i>
+          <span translate>
+            Connect to Firebase and store basic user interaction information (optional) // Storage of User Authentication Data </span
+          >.
+        </li>
+        <li class="flex items-start gap-1">
+          <i class="material-icons text-[#009dd1]">check</i>
+          <span translate>
+            You can add additional functions if you think necessary (optional). // The user can update their profile and store additional data </span
+          >.
+        </li>
+        <li class="flex items-start gap-1">
+          <i class="material-icons text-[#009dd1]">check</i>
+          <span translate>When finished, upload your project to BitBucket</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w-full md:w-6/12 h-[444px]">
+      <div
+        id="map"
+        class="w-full h-full transition-colors duration-700 grayscale hover:grayscale-0"
+      ></div>
+      <a class="mt-2 flex w-full items-center text-xs transition-colors duration-700 hover:font-semibold tracking-widest uppercase text-[#009dd1]" href="/map" translate>
+        Save your favorite points from the full map view
+      </a>
+    </div>
+  </aside>
+</article>

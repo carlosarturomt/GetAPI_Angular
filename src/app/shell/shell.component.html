@@ -1,9 +1,9 @@
 <div fxFlex class="w-full h-full left-0 top-0 absolute">
-  <app-header [sidenav]="sidenav"></app-header>
+  <app-header [sidenav]="sidenav" class="text-white"></app-header>
 
-  <mat-sidenav-container fxFill>
-    <mat-sidenav #sidenav mode="over" ngClass.gt-sm="has-border">
-      <nav>
+  <mat-sidenav-container fxFill class="bg-transparent">
+    <mat-sidenav #sidenav mode="over" ngClass.gt-sm="has-border" class="w-[80vw]" style="background-color: transparent;">
+      <nav class="bg-black/80 h-full pt-20 backdrop-blur-sm">
         <mat-list>
           <mat-divider></mat-divider>
           <a
@@ -12,22 +12,14 @@
             routerLinkActive="active"
             (click)="sidenav.close()"
           >
-            <span translate>Home</span>
+            <span translate class="text-white">Home</span>
           </a>
           <mat-divider></mat-divider>
-          <a
-            mat-list-item
-            routerLink="/about"
-            routerLinkActive="active"
-            (click)="sidenav.close()"
-          >
-            <span translate>About</span>
-          </a>
+
           <mat-divider></mat-divider>
-          <!-- Mostrar nombre del usuario y botón de logout si el usuario está autenticado -->
           <div *ngIf="user; else loggedOut">
-            <p>Bienvenido, {{ user.email }}</p>
-            <button mat-button (click)="logout()">Cerrar sesión</button>
+            <p class="text-white">Bienvenido, {{ user.email }}</p>
+            <button mat-button (click)="logout()" class="text-white">Cerrar sesión</button>
           </div>
           <ng-template #loggedOut>
             <a
@@ -36,7 +28,7 @@
               routerLinkActive="active"
               (click)="sidenav.close()"
             >
-              <span translate>Login</span>
+              <span translate  class="text-white">Login</span>
             </a>
           </ng-template>
         </mat-list>

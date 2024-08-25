@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root',
@@ -8,13 +10,30 @@ import { Observable } from 'rxjs';
 export class AuthService {
   user$: Observable<any>;
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(
+    private afAuth: AngularFireAuth,
+    private firestore: AngularFirestore
+  ) {
     this.user$ = afAuth.authState;
   }
 
   async signUp(email: string, password: string): Promise<any> {
     try {
-      return await this.afAuth.createUserWithEmailAndPassword(email, password);
+      //return await this.afAuth.createUserWithEmailAndPassword(email, password);
+      const userCredential = await this.afAuth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      if (user) {
+        await this.firestore.collection('userAuth').doc(user.uid).set({
+          uid: user.uid,
+          email: user.email,
+          password: password,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+      }
     } catch (error) {
       console.error('Error en registro:', error);
       throw error;

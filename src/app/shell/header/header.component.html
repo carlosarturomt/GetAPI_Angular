@@ -1,4 +1,4 @@
-<header class="flex items-center fixed left-0 w-full z-10 py-4 px-6">
+<header class="flex items-center fixed left-0 w-full z-10 py-7 px-5">
   <div fxHide.gt-sm fxLayoutAlign="start center">
     <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
@@ -16,22 +16,46 @@
 
     <div class="text-white">
       <button mat-button routerLink="/home" routerLinkActive="active">
-        <span translate class="uppercase">Home</span>
+        <span translate class="uppercase tracking-widest font-medium"
+          >Home</span
+        >
       </button>
-      <button mat-button routerLink="/about" routerLinkActive="active">
-        <span translate class="uppercase">About</span>
+      <button mat-button routerLink="/map" routerLinkActive="active">
+        <span translate class="uppercase tracking-widest font-medium"
+          >Full Map</span
+        >
       </button>
 
       <app-language-selector [icon]="true"></app-language-selector>
 
-      <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <button
+        mat-button
+        routerLink="/login"
+        routerLinkActive="active"
+        *ngIf="!user"
+      >
+        <span
+          translate
+          class="uppercase tracking-widest font-medium border-2 rounded-full py-2 px-3 transition-colors duration-700 hover:bg-white hover:text-black"
+          translate
+          >Login</span
+        >
+      </button>
+
+      <button mat-icon-button [matMenuTriggerFor]="userMenu" *ngIf="user">
         <mat-icon>person</mat-icon>
       </button>
 
       <mat-menu #userMenu="matMenu">
         <mat-list>
           <mat-list-item>
-            <span translate>Logged in as</span>&nbsp;<b>{{ username }}</b>
+            <button
+              routerLink="/profile"
+              routerLinkActive="active"
+              translate
+              class="capitalize">
+              My profile
+            </button>
           </mat-list-item>
           <mat-divider></mat-divider>
         </mat-list>

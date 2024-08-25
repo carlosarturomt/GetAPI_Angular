@@ -9,7 +9,6 @@ import { UntilDestroy, untilDestroyed } from '@shared';
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
-  styleUrls: ['./shell.component.scss'],
 })
 export class ShellComponent implements OnInit {
   @ViewChild('sidenav', { static: false }) sidenav!: MatSidenav;
@@ -28,7 +27,7 @@ export class ShellComponent implements OnInit {
         filter(({ matches }) => !matches),
         untilDestroyed(this)
       )
-      .subscribe(() => this.sidenav.close());
+      //.subscribe(() => this.sidenav.close());
 
     // Subscribe to the user's authentication state
     this.authService

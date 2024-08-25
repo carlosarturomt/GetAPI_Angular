@@ -1,14 +1,35 @@
 <div class="w-full">
-  <div class="w-full h-[70vh] flex relative">
-    <div class="absolute w-full h-full top-0 bg-black/50"></div>
+  <div class="w-full h-[79vh] min-h-[505px] max-h-[800px] flex relative">
+    <div
+      class="absolute w-full h-full top-0 flex justify-center items-center flex-col bg-black/50"
+    >
+      <p
+        class="text-white text-6xl tracking-widest text-lg uppercase font-light"
+        translate
+      >
+        Frontend exam
+      </p>
+      <p
+        class="text-white text-6xl tracking-widest text-[68px] uppercase font-semibold py-5"
+        translate
+      >
+        Map
+      </p>
+      <a
+        href="https://bitbucket.org/carlosarturomt2024/examenfrontend/src/main/"
+        target="_blank"
+        translate
+        class="text-[15px] tracking-widest uppercase text-white rounded-full py-3 px-6 transition-colors duration-700 bg-[#009dd1] hover:bg-[#009dd1]/80"
+      >
+        See repository
+      </a>
+    </div>
     <img
       class="w-full h-full object-cover"
       src="https://images.squarespace-cdn.com/content/v1/6011d06b6b9bf728c97d41c8/1611952778500-LVFAUEONFZ0NLJDQYY8F/image-asset.jpeg"
       alt="picture"
     />
   </div>
-
-  <p *ngIf="user" class="text-black">Logged in as: {{ user.email }}</p>
 
   <app-map></app-map>
 </div>
